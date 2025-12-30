@@ -14,10 +14,17 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 text-gray-900`}>
+      <head>
+        <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+      </head>
+      <body className={`${inter.className} text-gray-900 bg-brand-hero`}>
         <NavBar />
         <main className="max-w-6xl mx-auto p-6">
+          <div className="rounded-2xl bg-white/80 backdrop-blur shadow-glow border border-white/40">
+            <div className="p-6">
           {children}
+            </div>
+          </div>
         </main>
         <SiteFooter />
       </body>

@@ -10,7 +10,7 @@ export default function ResultsPanel({ data }: { data: GenerationResponse }){
   const ref = useRef<HTMLDivElement | null>(null)
 
   return (
-    <div className="mt-4 bg-white p-4 rounded shadow">
+  <div className="mt-4 bg-white p-4 rounded-xl shadow">
       <div className="flex justify-between items-start">
         <h3 className="text-lg font-semibold">Results</h3>
         <div className="flex gap-2">
@@ -19,7 +19,9 @@ export default function ResultsPanel({ data }: { data: GenerationResponse }){
         </div>
       </div>
 
-      <Tabs active={tab} onChange={(t)=>setTab(t)} items={[{key:'provider',label:'Provider Plan'},{key:'patient',label:'Patient Handout'}]} />
+      <div className="mt-3">
+        <Tabs active={tab} onChange={(t)=>setTab(t)} items={[{key:'provider',label:'Provider Plan'},{key:'patient',label:'Patient Handout'}]} />
+      </div>
 
       <div ref={ref} className="mt-4">
         {tab === 'provider' ? (

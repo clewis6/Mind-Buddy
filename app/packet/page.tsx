@@ -29,7 +29,7 @@ export default function PacketPage(){
         <textarea rows={5} className="p-3 border rounded" value={narrative} onChange={(e)=>setNarrative(e.target.value)} />
         <input className="p-2 border rounded" placeholder="City, State or Zip (optional)" value={location} onChange={(e)=>setLocation(e.target.value)} />
         <DisclaimerGate>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded" onClick={generate}>Generate</button>
+          <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 transition text-white rounded" onClick={generate}>Generate</button>
         </DisclaimerGate>
       </div>
 
@@ -37,7 +37,7 @@ export default function PacketPage(){
         <div ref={rootRef} className="mt-5 bg-white p-4 rounded shadow">
           <h2 className="text-xl font-semibold">Provider View</h2>
           <p className="text-sm text-gray-700">{result.provider.summary}</p>
-          {result.provider.warnings?.length? (<ul className="text-red-700 list-disc list-inside">{result.provider.warnings.map((w:string,i:number)=>(<li key={i}>{w}</li>))}</ul>): null}
+          {result.provider.warnings?.length? (<ul className="text-rose-700 list-disc list-inside bg-rose-50 border border-rose-100 rounded p-2">{result.provider.warnings.map((w:string,i:number)=>(<li key={i}>{w}</li>))}</ul>): null}
           <h3 className="mt-3 font-semibold">Recommended Items</h3>
           <ul className="list-disc list-inside text-sm">{result.provider.items.map((it:any)=>(<li key={it.slug}><a href={`/library/${it.slug}`} className="text-blue-700">{it.title}</a> — {it.why}</li>))}</ul>
 

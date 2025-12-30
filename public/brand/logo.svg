@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="32" viewBox="0 0 140 32" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="140" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0ea5e9"/>
+      <stop offset="0.4" stop-color="#10b981"/>
+      <stop offset="0.75" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#f43f5e"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="6" rx="8" ry="8" width="36" height="20" fill="url(#g)" opacity="0.2" />
+  <path d="M18 8c4 0 8 3 8 8s-4 8-8 8-8-3-8-8 4-8 8-8z" fill="url(#g)" />
+  <path d="M26 16c6-4 12-4 18 2" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <text x="52" y="21" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="16" font-weight="600" fill="#1f2937">Mind Buddy</text>
+</svg>

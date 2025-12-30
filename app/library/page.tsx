@@ -33,18 +33,20 @@ export default function LibraryPage(){
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
         {filtered.map(it => (
-          <div key={it.slug} className="p-4 bg-white rounded shadow border">
-            <h3 className="font-semibold flex items-center gap-2"><span>{it.type==='worksheet'?'📝':it.type==='skill'?'🎯':'📄'}</span><Link href={`/library/${it.slug}`}>{it.title}</Link></h3>
+          <div key={it.slug} className="p-4 bg-white rounded-xl shadow hover:shadow-glow hover:scale-[1.01] transition border">
+            <h3 className="font-semibold flex items-center gap-2"><span>{it.type==='worksheet'? '📝':it.type==='skill'? '🎯':'📄'}</span><Link href={`/library/${it.slug}`}>{it.title}</Link></h3>
             <p className="text-sm text-gray-600">{it.type} • {it.minutesToComplete} min</p>
             <div className="mt-2 flex flex-wrap gap-1">
-              {it.topics.slice(0,4).map((t:string)=> (<span key={t} className="px-2 py-0.5 rounded-full bg-gray-100 text-xs border">{t}</span>))}
+              {it.topics.slice(0,4).map((t:string)=> (
+                <span key={t} className={`px-2 py-0.5 rounded-full text-xs border ${t.toLowerCase().includes('grounding')? 'bg-brand.emerald.100' : t.toLowerCase().includes('activation')? 'bg-brand.amber.100' : t.toLowerCase().includes('panic')? 'bg-brand.rose.100' : t.toLowerCase().includes('breath')? 'bg-brand.sky.100' : 'bg-gray-100'}`}>{t}</span>
+              ))}
             </div>
             <div className="mt-3 flex gap-2">
-              <Link href={`/library/${it.slug}`} className="px-3 py-1 bg-gray-100 rounded">View</Link>
+              <Link href={`/library/${it.slug}`} className="px-3 py-1 bg-indigo-600 hover:bg-indigo-700 transition text-white rounded">View</Link>
               <button onClick={()=>{
                 const draft = JSON.parse(localStorage.getItem('draftPacket')||'[]')
                 localStorage.setItem('draftPacket', JSON.stringify([...draft, it.slug]))
-              }} className="px-3 py-1 bg-emerald-100 rounded">Add to Packet</button>
+              }} className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 transition text-white rounded">Add to Packet</button>
             </div>
           </div>
         ))}

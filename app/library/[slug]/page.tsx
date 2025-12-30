@@ -22,7 +22,11 @@ export default function ItemPage({ params }: { params: { slug: string } }){
         <PDFExport rootRef={printRef} filename={`${item.slug}.pdf`} />
       </div>
       <p className="text-sm text-gray-600">{item.type} • {item.minutesToComplete} min</p>
-      <div className="mt-2 text-xs text-gray-700">Tags: {item.diagnoses.join(', ')} • {item.topics.join(', ')} • {item.modality.join(', ')}</div>
+      <div className="mt-2 flex flex-wrap gap-1">
+        {item.topics.slice(0,6).map(t=> (
+          <span key={t} className={`px-2 py-0.5 rounded-full text-xs border ${t.toLowerCase().includes('grounding')? 'bg-brand.emerald.100' : t.toLowerCase().includes('activation')? 'bg-brand.amber.100' : t.toLowerCase().includes('panic')? 'bg-brand.rose.100' : t.toLowerCase().includes('breath')? 'bg-brand.sky.100' : 'bg-gray-100'}`}>{t}</span>
+        ))}
+      </div>
       {item.slug === 'anxiety-panic-cycle' ? (
         <PanicCycleHandout ref={printRef} item={item} />
       ) : item.slug.includes('grounding') ? (
@@ -34,11 +38,12 @@ export default function ItemPage({ params }: { params: { slug: string } }){
       ) : (
         <HandoutRenderer ref={printRef} item={item} />
       )}
-      <div className="mt-3">
+      <div className="mt-3 flex gap-2">
         <button onClick={()=>{
           const draft = JSON.parse(localStorage.getItem('draftPacket')||'[]')
           localStorage.setItem('draftPacket', JSON.stringify([...draft, item.slug]))
-        }} className="px-4 py-2 bg-emerald-600 text-white rounded">Add to Packet</button>
+        }} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 transition text-white rounded">Add to Packet</button>
+        <a href="/library" className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 transition text-white rounded">Back to Library</a>
       </div>
     </div>
   )
