@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* Handout theme */
+.handout h1 { font-size: 1.875rem; line-height: 2.25rem; font-weight: 600; letter-spacing: -0.01em; }
+.handout h2 { font-size: 1.125rem; line-height: 1.75rem; font-weight: 600; margin-top: 0.75rem; }
+.handout .section { margin-top: 1rem; border-radius: 0.5rem; border: 1px solid #e5e7eb; }
+.handout .section--why { background: #fff7e6; }
+.handout .section--homework { background: #e8f3ff; }
+.handout .section .section-title { padding: 0.5rem 1rem; font-weight: 600; }
+.handout .section .section-body { padding: 0.75rem 1rem; font-size: 0.875rem; color: #1f2937; }
+
+@media print {
+  body { background: white; }
+  .no-print { display: none !important; }
+  .print\:border-black { border-color: black !important; }
+}
