@@ -7,7 +7,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'CarePlan Compass',
+  title: 'Mind Buddy',
   description: 'Generate treatment plans, handouts, and local resources from clinical narratives.',
 }
 

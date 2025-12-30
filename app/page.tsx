@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       <header className="py-14 text-center rounded-xl bg-gradient-to-r from-blue-50 via-emerald-50 to-indigo-50 border">
-        <h1 className="text-4xl font-semibold tracking-tight">CarePlan Compass</h1>
+  <h1 className="text-4xl font-semibold tracking-tight">Mind Buddy</h1>
         <p className="mt-3 text-gray-700">Professional, printable worksheets and handouts. Smart packet builder with local resources.</p>
         <div className="mt-6 flex gap-3 justify-center">
           <Link href="/library" className="inline-block bg-blue-600 text-white px-5 py-3 rounded-md">Browse Library</Link>

@@ -1,4 +1,4 @@
-# CarePlan Compass
+# Mind Buddy
 
 Local Next.js + TypeScript MVP.
 
